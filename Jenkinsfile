@@ -10,17 +10,22 @@ pipeline {
     stage('sonar analysis') {
       steps {
         withCredentials([string(credentialsId: 'allure-spock', variable: 'SONAR_TOKEN')]) {
-        sh '''mvn sonar:sonar \
+          withMaven(maven: 'maven') {
+        '''mvn sonar:sonar \
           -Dsonar.projectKey=spock-allure \
           -Dsonar.host.url=$SONAR_SERVER \
           -Dsonar.login=$SONAR_TOKEN'''
         }
+        }
+        
       }
     }
 
     stage('buiild project') {
       steps {
+        withMaven(maven: 'maven') {
         sh 'mvn clean install'
+        }
       }
     }
     
