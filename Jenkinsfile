@@ -11,7 +11,7 @@ pipeline {
       steps {
         withCredentials([string(credentialsId: 'allure-spock', variable: 'SONAR_TOKEN')]) {
           withMaven(maven: 'maven') {
-        '''mvn sonar:sonar \
+        sh '''mvn sonar:sonar \
           -Dsonar.projectKey=spock-allure \
           -Dsonar.host.url=$SONAR_SERVER \
           -Dsonar.login=$SONAR_TOKEN'''
