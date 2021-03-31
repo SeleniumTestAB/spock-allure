@@ -13,7 +13,7 @@
         <assertj.version>3.13.2</assertj.version>
         <selenide.version>5.2.8</selenide.version>
         <selenium.version>3.141.59</selenium.version>
-        <guava.version>25.1-jre</guava.version>
+        <guava.version>29.0-jre</guava.version>
         <allure.version>2.13.1</allure.version>
         <j2html.version>1.4.0</j2html.version>
         <lombok.version>1.18.8</lombok.version>
